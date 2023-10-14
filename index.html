@@ -1,0 +1,52 @@
+<html>
+   <head>
+      <title>TestE2E</title>
+      <style type="text/css">
+         .cal{
+            margin: 100px;
+            background-color: gray;
+            padding: 40px;
+         }
+         input{
+            padding: 6px;
+         }
+         .row{
+            margin-bottom: 10px;
+            display: flex;
+         }
+         label{
+            width:120px
+         }
+
+      </style>
+   </head>
+   <body>
+      <div class="cal">
+         <div class="row">
+            <label>Montant : </label>
+            <input id="montant" value="0" /> €
+         </div>
+         <div class="row">
+            <label>TVA :</label><input id="tva" value="0" /> %
+         </div>
+         <div class="row">
+            <button onclick="calculer()">Calculer</button>
+         </div>
+         <div class="row">
+            <label>Montant TTC</label>
+            <span id="montant_ttc">0</span>
+         </div>
+      </div>
+      <script>
+
+function calculer(){
+   const montant = document.getElementById('montant').value;
+            const tva = document.getElementById('tva').value;
+            const ttc = (montant * tva) /100;
+            document.getElementById('montant_ttc').innerHTML = ttc;
+}
+            
+
+      </script>
+   </body>
+</html>
