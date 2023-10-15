@@ -22,6 +22,7 @@
    </head>
    <body>
       <div class="cal">
+         <h1>Calcul TVA</h1>
          <div class="row">
             <label>Montant : </label>
             <input id="montant" value="0" /> €
@@ -30,23 +31,29 @@
             <label>TVA :</label><input id="tva" value="0" /> %
          </div>
          <div class="row">
-            <button onclick="calculer()">Calculer</button>
+            <button id="btn_calculer" onclick="calculer()">Calculer</button>
          </div>
          <div class="row">
             <label>Montant TTC</label>
-            <span id="montant_ttc">0</span>
+            <div id="montant_ttc">0</div>
          </div>
       </div>
       <script>
 
 function calculer(){
-   const montant = document.getElementById('montant').value;
+            const montant = document.getElementById('montant').value;
             const tva = document.getElementById('tva').value;
-            const ttc = (montant * tva) /100;
-            document.getElementById('montant_ttc').innerHTML = ttc;
-}
+            let ttc = null;
+            if(montant <= 0){
+               ttc = "Le montant doit être > 0";
+            }else if(tva <= 0){
+               ttc = "Le montant de tva doit être > 0";
+            }else{
+                ttc = (montant * tva) / 100;
+            }
             
-
+            document.getElementById('montant_ttc').innerHTML = ttc;        
+}
       </script>
    </body>
 </html>

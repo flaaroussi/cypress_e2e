@@ -4,6 +4,8 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
     specPattern: 'cypress/e2e/**/*-spec.js',
-    supportFile : false
+    supportFile : false,
+    reporter: 'mochawesome'
   },
+  
 })
